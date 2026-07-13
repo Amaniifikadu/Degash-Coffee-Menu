@@ -1,4 +1,4 @@
-const Category = require('../models/Category');
+const Category = require('../models/category');
 const MenuItem = require('../models/menuitem');
 
 // @desc    Get all categories

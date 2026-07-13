@@ -1,5 +1,5 @@
 const Order = require('../models/order');
-const MenuItem = require('../models/MenuItem');
+const MenuItem = require('../models/menuitem');
 const { getIO } = require('../socket');
 
 // @desc    Place a new order (customer, no login required)

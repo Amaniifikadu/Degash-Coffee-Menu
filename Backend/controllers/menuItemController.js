@@ -1,4 +1,4 @@
-const MenuItem = require('../models/MenuItem');
+const MenuItem = require('../models/menuitem');
 
 // @desc    Get all menu items (optionally filtered by category, availability)
 // @route   GET /api/menu-items?category=<id>&available=true

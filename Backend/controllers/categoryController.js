@@ -1,5 +1,5 @@
 const Category = require('../models/Category');
-const MenuItem = require('../models/MenuItem');
+const MenuItem = require('../models/menuitem');
 
 // @desc    Get all categories
 // @route   GET /api/categories

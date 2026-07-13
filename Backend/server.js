@@ -13,7 +13,7 @@ const { notFound, errorHandler } = require('./middleware/errorHandler');
 
 const authRoutes = require('./routes/authRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
-const menuItemRoutes = require('./routes/menuitemRoutes');
+const menuitemRoutes = require('./routes/menuitemRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
@@ -32,7 +32,7 @@ socket.init(server, CLIENT_URL);
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/categories', categoryRoutes);
-app.use('/api/menu-items', menuItemRoutes);
+app.use('/api/menu-items', menuitemRoutes);
 app.use('/api/orders', orderRoutes);
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));

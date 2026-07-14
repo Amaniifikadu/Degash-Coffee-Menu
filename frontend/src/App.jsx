@@ -4,11 +4,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 import MenuPage from './pages/customer/MenuPage';
 import CartPage from './pages/customer/CartPage';
-import OrderTrackingPage from './pages/customer/OrderTrackingPage';
+import OrderTrackingPage from './pages/customer/orderTrackingPage';
 
 import LoginPage from './pages/admin/LoginPage';
 import DashboardLayout from './pages/admin/DashboardLayout';
-import OrdersPage from './pages/admin/OrdersPage';
+import OrdersPage from './pages/admin/ordersPage';
 import MenuManagerPage from './pages/admin/MenuManagerPage';
 import CategoryManagerPage from './pages/admin/CategoryManagerPage';
 import QRGeneratorPage from './pages/admin/QRGeneratorPage';

@@ -19,10 +19,16 @@ const orderRoutes = require('./routes/orderRoutes');
 const app = express();
 const server = http.createServer(app);
 
-const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+const CLIENT_URL = [
+  'http://localhost:5173',
+  'https://degash-coffee-menu.vercel.app'
+];
 
 // Middleware
-app.use(cors({ origin: CLIENT_URL }));
+app.use(cors({
+   origin: CLIENT_URL,
+  credentials: true
+  }));
 app.use(express.json());
 if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 

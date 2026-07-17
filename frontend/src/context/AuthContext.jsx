@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   });
 
   const login = async (email, password) => {
-    const { data } = await api.post('/auth/login', { email, password });
+    const { data } = await api.post('/api/auth/login', { email, password });
     localStorage.setItem('cafe_admin_token', data.token);
     localStorage.setItem('cafe_admin_user', JSON.stringify(data));
     setUser(data);

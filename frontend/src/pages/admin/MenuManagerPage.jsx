@@ -31,9 +31,9 @@ const MenuManagerPage = () => {
     try {
       const payload = { ...form, price: Number(form.price) };
       if (editingId) {
-        await api.put(`/menu-items/${editingId}`, payload);
+        await api.put(`/api/menu-items/${editingId}`, payload);
       } else {
-        await api.post('/menu-items', payload);
+        await api.post('/api/menu-items', payload);
       }
       resetForm();
       load();
@@ -56,7 +56,7 @@ const MenuManagerPage = () => {
 
   const handleDelete = async (id) => {
     if (!confirm('Delete this menu item?')) return;
-    await api.delete(`/menu-items/${id}`);
+    await api.delete(`/api/menu-items/${id}`);
     load();
   };
 

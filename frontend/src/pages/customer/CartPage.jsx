@@ -25,7 +25,7 @@ const CartPage = () => {
         tableNumber: Number(tableNumber),
         items: items.map((i) => ({ menuItemId: i.menuItemId, quantity: i.quantity })),
       };
-      const { data: order } = await api.post('/orders', payload);
+      const { data: order } = await api.post('/api/orders', payload);
       clearCart();
       navigate(`/order/${order._id}`);
     } catch (err) {

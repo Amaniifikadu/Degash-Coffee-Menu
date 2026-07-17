@@ -17,7 +17,7 @@ const OrdersPage = () => {
 
   const loadOrders = async () => {
     try {
-      const { data } = await api.get('/orders');
+      const { data } = await api.get('/api/orders');
       setOrders(data);
     } finally {
       setLoading(false);
@@ -68,12 +68,12 @@ const OrdersPage = () => {
   const advanceStatus = async (order) => {
     const next = STATUS_FLOW[order.orderStatus];
     if (!next) return;
-    const { data } = await api.patch(`/orders/${order._id}/status`, { orderStatus: next });
+    const { data } = await api.patch(`/api/orders/${order._id}/status`, { orderStatus: next });
     setOrders((prev) => prev.map((o) => (o._id === data._id ? data : o)));
   };
 
   const cancelOrder = async (order) => {
-    const { data } = await api.patch(`/orders/${order._id}/status`, { orderStatus: 'Cancelled' });
+    const { data } = await api.patch(`/api/orders/${order._id}/status`, { orderStatus: 'Cancelled' });
     setOrders((prev) => prev.map((o) => (o._id === data._id ? data : o)));
   };
 

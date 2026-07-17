@@ -22,8 +22,8 @@ const MenuPage = () => {
       try {
         setLoading(true);
         const [catRes, itemRes] = await Promise.all([
-          api.get('/categories'),
-          api.get('/menu-items', { params: { available: true } }),
+          api.get('/api/categories'),
+          api.get('/api/menu-items', { params: { available: true } }),
         ]);
         setCategories(catRes.data);
         setItems(itemRes.data);

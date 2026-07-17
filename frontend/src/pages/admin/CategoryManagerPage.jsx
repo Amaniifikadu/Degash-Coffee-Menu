@@ -8,7 +8,7 @@ const CategoryManagerPage = () => {
   const [error, setError] = useState('');
 
   const load = async () => {
-    const { data } = await api.get('/categories');
+    const { data } = await api.get('/api/categories');
     setCategories(data);
   };
 

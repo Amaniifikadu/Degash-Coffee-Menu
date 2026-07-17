@@ -15,7 +15,7 @@ const OrderTrackingPage = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const { data } = await api.get(`/orders/${orderId}`);
+        const { data } = await api.get(`/api/orders/${orderId}`);
         setOrder(data);
       } catch (err) {
         setError('Order not found. Double check the link, or ask staff for help.');

@@ -4,9 +4,9 @@ import { useSocket } from '../../context/SocketContext';
 import StatusBadge from '../../components/StatusBadge';
 
 const STATUS_FLOW = {
-  Pending: 'Preparing',
-  Preparing: 'Ready',
-  Ready: 'Completed',
+  Pending: 'PREPARING',
+  Preparing: 'READY',
+  Ready: 'COMPLETED',
 };
 
 const OrdersPage = () => {
@@ -73,7 +73,7 @@ const OrdersPage = () => {
   };
 
   const cancelOrder = async (order) => {
-    const { data } = await api.patch(`/api/orders/${order._id}/status`, { orderStatus: 'Cancelled' });
+    const { data } = await api.patch(`/api/orders/${order._id}/status`, { orderStatus: 'CANCELLED' });
     setOrders((prev) => prev.map((o) => (o._id === data._id ? data : o)));
   };
 
@@ -112,10 +112,10 @@ const OrdersPage = () => {
                 <div style={{ display: 'flex', gap: '0.4rem' }}>
                   {STATUS_FLOW[order.orderStatus] && (
                     <button className="btn btn-primary" onClick={() => advanceStatus(order)}>
-                      Mark {STATUS_FLOW[order.orderStatus]}
+                      Mark {STATUS_FLOW[order.orderStatus] === 'PREPARING' ? 'Preparing' : STATUS_FLOW[order.orderStatus] === 'READY' ? 'Ready' : 'Completed' }
                     </button>
                   )}
-                  {order.orderStatus !== 'Cancelled' && (
+                  {order.orderStatus !== 'CANCELLED' && (
                     <button className="btn btn-danger" onClick={() => cancelOrder(order)}>
                       Cancel
                     </button>

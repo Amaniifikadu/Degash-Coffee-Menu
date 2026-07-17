@@ -20,7 +20,6 @@ const app = express();
 const server = http.createServer(app);
 
 const CLIENT_URL = [
-  'http://localhost:5173',
   'https://degash-coffee-menu.vercel.app'
 ];
 

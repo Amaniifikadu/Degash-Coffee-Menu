@@ -69,12 +69,24 @@ const OrdersPage = () => {
     const next = STATUS_FLOW[order.orderStatus];
     if (!next) return;
     const { data } = await api.patch(`/api/orders/${order._id}/status`, { orderStatus: next });
-    setOrders((prev) => prev.map((o) => (o._id === data._id ? data : o)));
+    setOrders((prev) => prev.map((o) => {
+      if(o._id.toString() === data._id.toString()) {
+        return data;
+      }
+      return o;
+    }
+    ));
   };
 
   const cancelOrder = async (order) => {
     const { data } = await api.patch(`/api/orders/${order._id}/status`, { orderStatus: 'Cancelled' });
-    setOrders((prev) => prev.map((o) => (o._id === data._id ? data : o)));
+    setOrders((prev) => prev.map((o) => {
+      if(o._id.toString() === data._id.toString()) {
+        return data;
+      } 
+      return o;
+    }
+    ));
   };
 
   if (loading) return <p>Loading orders…</p>;

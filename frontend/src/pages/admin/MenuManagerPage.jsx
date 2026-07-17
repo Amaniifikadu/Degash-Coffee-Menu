@@ -11,7 +11,7 @@ const MenuManagerPage = () => {
   const [error, setError] = useState('');
 
   const load = async () => {
-    const [itemRes, catRes] = await Promise.all([api.get('/menu-items'), api.get('/categories')]);
+    const [itemRes, catRes] = await Promise.all([api.get('/api/menu-items'), api.get('/api/categories')]);
     setItems(itemRes.data);
     setCategories(catRes.data);
   };
